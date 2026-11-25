@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>Garuda Taekwondo Academy — Disiplin, Prestasi, Karakter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --bg-soft:#f2f4f8; --bg-navy:#0d1b33; --surface:#ffffff; --surface-2:#eaeef5;
+  --ink:#0e1729; --ink-2:#2c3a52; --muted:#475467; --line:#c9d1de; --line-strong:#0d1b33;
+  --navy:#0d1b33; --navy-2:#162a4d; --red:#c8102e; --red-dark:#a50d26; --blue:#175cd3; --gold:#9a3d06;
+  --belt-white:#f8f9fb;
+  --shadow:0 10px 28px rgba(13,27,51,.09);
+  --radius:4px;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0b1220; --bg-soft:#0e1930; --surface:#111c31; --surface-2:#182642; --ink:#f2f4f7; --ink-2:#d3dae6; --muted:#a6b0c2; --line:#2a3c5c; --line-strong:#e6eaf0; --shadow:0 12px 32px rgba(0,0,0,.35); }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Public Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,[role="button"],select,summary,input,textarea{font:inherit}
+button,select,summary,input:not([type="checkbox"]){min-height:44px}
+h1,h2,h3{font-family:"Archivo",sans-serif;line-height:1.08;letter-spacing:-.015em;margin:0}
+h1{font-size:clamp(2.3rem,5.4vw,4.15rem);font-weight:800;text-transform:uppercase}
+h2{font-size:clamp(1.8rem,3.6vw,2.7rem);font-weight:800;text-transform:uppercase}
+h3{font-size:1.15rem;font-weight:800}
+p{margin:0}
+.wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
+section[id]{scroll-margin-top:96px}
+.skip{position:absolute;left:16px;top:-60px;z-index:60;background:var(--navy);color:#fff;padding:10px 16px;font-weight:700;text-decoration:none;border-radius:3px;transition:top .18s}
+.skip:focus{top:12px}
+.topbar{background:var(--navy);color:#fff;font-size:.82rem}
+.topbar .wrap{display:flex;justify-content:space-between;gap:16px;padding:9px 0;flex-wrap:wrap}
+.topbar span{opacity:.92}
+.topbar strong{font-weight:700}
+.nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-mark{width:44px;height:44px;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:"Archivo";font-weight:900;letter-spacing:.04em;border-bottom:4px solid var(--red);flex:none}
+.brand b{font-family:"Archivo";font-size:1rem;letter-spacing:.06em;text-transform:uppercase;line-height:1.1;display:block}
+.brand small{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.navlinks{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.navlinks a{text-decoration:none;font-weight:600;font-size:.92rem;padding:10px 12px;border-radius:3px}
+.navlinks a:hover{background:var(--surface-2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:700;border:1px solid var(--navy);padding:12px 18px;border-radius:3px;min-height:48px;cursor:pointer;background:var(--navy);color:#fff;transition:background .18s,border-color .18s,color .18s,transform .12s}
+.btn:active{transform:translateY(1px)}
+.btn.red{background:var(--red);border-color:var(--red)}
+.btn.red:hover{background:var(--red-dark);border-color:var(--red-dark)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{background:var(--surface-2);border-color:var(--muted)}
+.btn.light{background:#fff;color:var(--navy);border-color:#fff}
+.hero{border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:0;min-height:640px}
+.hero-copy{padding:64px 48px 56px 0;display:flex;flex-direction:column;justify-content:center}
+.eyebrow{display:flex;align-items:center;gap:12px;font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:18px}
+.eyebrow::before{content:"";width:36px;height:3px;background:var(--red)}
+.hero-copy p.lead{font-size:1.14rem;line-height:1.68;color:var(--ink-2);margin-top:20px;max-width:34rem}
+.hero-note{margin-top:16px;font-size:.9rem;color:var(--muted);display:flex;gap:9px;align-items:flex-start;max-width:32rem}
+.hero-note::before{content:"✓";color:var(--red);font-weight:900;flex:none}
+.hero-copy p.lead strong{color:var(--ink)}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero-meta{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--line-strong);margin-top:38px}
+.hero-meta div{padding:18px 16px 4px 0}
+.hero-meta b{font-family:"Archivo";font-size:1.55rem;font-weight:800;display:block;line-height:1.1}
+.hero-meta span{font-size:.82rem;color:var(--muted);font-weight:600}
+.hero-media{position:relative;min-height:420px}
+.hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-media figcaption{position:absolute;left:20px;bottom:20px;right:20px;background:rgba(13,27,51,.94);color:#fff;padding:16px 18px;display:flex;justify-content:space-between;gap:16px;align-items:center;border-top:3px solid var(--red)}
+.hero-media figcaption b{font-family:"Archivo";text-transform:uppercase;letter-spacing:.04em}
+.hero-media figcaption span{font-size:.86rem;opacity:.85;display:block}
+.badge{background:var(--red);color:#fff;font-weight:800;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;padding:8px 10px;white-space:nowrap}
+.strip{background:var(--bg-navy);color:#fff}
+.strip .wrap{display:grid;grid-template-columns:repeat(5,1fr);}
+.tenet{padding:26px 18px;border-left:1px solid rgba(255,255,255,.14)}
+.tenet:first-child{border-left:0}
+.tenet i{font-family:"Archivo",sans-serif;font-style:normal;font-weight:800;font-size:.7rem;letter-spacing:.2em;color:#ff9db0;display:block;margin-bottom:9px}
+.tenet b{font-family:"Source Serif 4",serif;font-size:1.08rem;display:block}
+.tenet span{font-size:.83rem;opacity:.82;line-height:1.55;display:block;margin-top:3px}
+.section{padding:84px 0}
+.section.soft{background:var(--bg-soft)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:36px;border-top:2px solid var(--line-strong);padding-top:24px}
+.section-head p{color:var(--muted);max-width:36rem;margin-top:12px;font-size:1.02rem}
+.label{display:flex;align-items:center;gap:10px;font-size:.76rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+.label::before{content:"";width:9px;height:9px;background:var(--red);flex:none}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:var(--radius);overflow:hidden;transition:box-shadow .2s,transform .2s}
+.grid3 .card:nth-child(2){border-top-color:var(--red)}
+.card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.card img{width:100%;height:230px;object-fit:cover}
+.card-body{padding:24px}
+.card-body p{color:var(--muted);font-size:.95rem;margin-top:8px}
+.meta-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.chip{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--line);padding:6px 9px;border-radius:2px;background:var(--surface-2);color:var(--ink-2)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.split img{width:100%;height:100%;min-height:380px;object-fit:cover;border-radius:var(--radius)}
+.checklist{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:14px}
+.checklist li{display:flex;gap:12px;align-items:flex-start}
+.check{width:24px;height:24px;flex:none;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:900;border-radius:2px;font-size:.82rem;margin-top:2px}
+.checklist b{display:block}
+.checklist span{color:var(--muted);font-size:.94rem}
+.belt-explorer{display:grid;grid-template-columns:300px 1fr;gap:0;border:1px solid var(--line);background:var(--surface);border-radius:var(--radius);overflow:hidden}
+.belt-list{display:flex;flex-direction:column}
+.belt-btn{border:0;border-bottom:1px solid var(--line);background:var(--surface);text-align:left;padding:14px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;font-weight:700;min-height:52px}
+.belt-btn:last-child{border-bottom:0}
+.belt-btn{transition:background .15s,color .15s}
+.belt-btn:hover{background:var(--surface-2)}
+.belt-btn[aria-selected="true"]{background:var(--navy);color:#fff}
+.belt-btn[aria-selected="true"]:hover{background:var(--navy-2)}
+.belt-btn[aria-selected="true"] .swatch{border-color:rgba(255,255,255,.65)}
+.belt-band{height:12px;margin:-28px -28px 24px;border-bottom:1px solid var(--line)}
+.swatch{width:34px;height:14px;border:1px solid #98a2b3;flex:none}
+.belt-detail{padding:28px;border-left:1px solid var(--line)}
+.belt-detail p{color:var(--muted);margin-top:10px;max-width:42rem}
+.kv{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.kv div{border:1px solid var(--line);padding:14px}
+.kv b{font-family:"Archivo";font-size:1.2rem;display:block}
+.kv span{font-size:.82rem;color:var(--muted);font-weight:600}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.filter-btn{border:1px solid var(--line);background:var(--surface);padding:10px 16px;border-radius:3px;font-weight:700;cursor:pointer;min-height:44px;transition:background .15s,color .15s,border-color .15s}
+.filter-btn:hover{border-color:var(--muted)}
+.filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.schedule{display:grid;gap:12px}
+.sched-row{display:grid;grid-template-columns:148px 1fr auto 130px;gap:18px;align-items:center;background:var(--surface);border:1px solid var(--line);padding:18px;border-radius:var(--radius);transition:border-color .15s}
+.sched-row:hover{border-color:var(--muted)}
+.sched-row time{font-family:"Archivo";font-weight:800;border-right:1px solid var(--line);padding-right:16px;align-self:stretch;display:flex;flex-direction:column;justify-content:center}
+.sched-row p{color:var(--muted);font-size:.92rem}
+.tag{font-size:.72rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:7px 11px;text-align:center;border-radius:2px;background:#e8effe;color:#144a9e;white-space:nowrap}
+.tag.red{background:#fef3f2;color:#b42318}
+.tag.gold{background:#fffaeb;color:#b54708}
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.price-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column}
+.price-card.featured{border-color:var(--navy);border-top:4px solid var(--red);box-shadow:var(--shadow)}
+.price{font-family:"Archivo";font-size:1.95rem;font-weight:800;margin:12px 0 4px}
+.price small{font-size:.9rem;color:var(--muted);font-family:"Public Sans";font-weight:600}
+.price-card ul{list-style:none;padding:0;margin:18px 0 24px;display:grid;gap:10px;color:var(--ink-2);font-size:.94rem}
+.price-card ul li::before{content:"—  ";color:var(--red);font-weight:900}
+.price-card .btn{margin-top:auto}
+.faq{border-top:2px solid var(--line-strong)}
+details{border-bottom:1px solid var(--line);padding:0 4px}
+summary{cursor:pointer;font-weight:700;font-size:1.02rem;padding:19px 0;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center}
+summary::-webkit-details-marker{display:none}
+.faq-icon{color:var(--red);font-size:1.35rem;font-weight:400;line-height:1;flex:none;transition:transform .2s}
+details[open ] .faq-icon{transform:rotate(45deg)}
+details p{color:var(--muted);padding:0 0 20px;max-width:48rem}
+.form-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:start}
+form{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:grid;gap:14px}
+label{font-weight:700;font-size:.9rem;display:grid;gap:7px}
+input,select,textarea{border:1px solid var(--line);border-radius:4px;padding:11px 12px;background:var(--bg);color:var(--ink);width:100%}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,92,211,.22)}
+textarea{min-height:96px;resize:vertical}
+.summary-box{background:var(--navy);color:#fff;border-radius:var(--radius);border-top:4px solid var(--red);padding:26px;position:sticky;top:108px}
+.summary-box h3{color:#fff}
+.summary-box dl{display:grid;gap:12px;margin:18px 0}
+.summary-box dl>div{border-bottom:1px solid rgba(255,255,255,.16);padding-bottom:11px}
+.summary-box dl>div:last-child{border-bottom:0;padding-bottom:0}
+.summary-box dt{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;opacity:.7;font-weight:800}
+.summary-box dd{margin:2px 0 0;font-weight:700}
+.note{font-size:.88rem;opacity:.85}
+footer{background:var(--bg-navy);color:#fff;padding:48px 0;border-top:4px solid var(--red)}
+footer nav{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:14px}
+footer nav a{text-decoration:none;font-weight:700;font-size:.9rem}
+footer nav a:hover{text-decoration:underline;text-underline-offset:4px}
+footer .wrap{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap}
+footer p{opacity:.78;font-size:.92rem;max-width:34rem;margin-top:8px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:13px 18px;border-radius:4px;border-top:3px solid var(--red);font-weight:700;opacity:0;pointer-events:none;transition:.25s;z-index:50;box-shadow:var(--shadow);max-width:calc(100% - 32px);text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:920px){
+  .section{padding:60px 0}
+  .hero-grid,.split,.form-grid{grid-template-columns:1fr}
+  .hero-copy{padding:42px 0}
+  .hero-media{min-height:340px;position:relative;height:400px}
+  .hero-media figcaption{left:12px;right:12px;bottom:12px}
+  .strip .wrap{grid-template-columns:1fr 1fr}
+  .tenet{border-left:0;border-top:1px solid rgba(255,255,255,.14)}
+  .grid3,.pricing{grid-template-columns:1fr}
+  .card:hover{transform:none}
+  .belt-explorer{grid-template-columns:1fr}
+  .belt-detail{border-left:0;border-top:1px solid var(--line)}
+  .belt-band{margin:-28px -28px 20px}
+  .sched-row{grid-template-columns:1fr;gap:8px}
+  .sched-row time{border-right:0;padding-right:0}
+  .sched-row .btn{justify-self:start}
+  .section-head{flex-direction:column;align-items:flex-start}
+  .nav .wrap{flex-wrap:wrap;row-gap:8px}
+  .navlinks{order:3;width:100%;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .navlinks::-webkit-scrollbar{display:none}
+  .navlinks a{white-space:nowrap;flex:none}
+  .navlinks .btn{margin-left:auto}
+  .summary-box{position:static}
+  .kv{grid-template-columns:1fr}
+  .topbar .wrap span:last-child{display:none}
+}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+::selection{background:#fadbe1;color:#101828}
+@media print{.topbar,.nav,.toast,.hero-actions,.filters,.skip{display:none!important}.section{padding:30px 0}.card,.price-card,details{break-inside:avoid}}
+</style>
+</head>
+<body>
+<a class="skip" href="#daftar">Lewati ke formulir pendaftaran</a>
+<div class="topbar"><div class="wrap"><span><strong>Pendaftaran dibuka</strong> — Kelas Anak, Remaja &amp; Atlet Prestasi</span><span>Ujian Kenaikan Tingkat • Kyorugi • Poomsae</span></div></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#beranda" aria-label="Garuda Taekwondo Academy">
+      <span class="brand-mark">GT</span>
+      <span><b>Garuda Taekwondo</b><small>Academy • Dojang Resmi</small></span>
+    </a>
+    <nav class="navlinks" aria-label="Navigasi utama">
+      <a href="#program">Program</a><a href="#orangtua">Untuk Orang Tua</a><a href="#sabuk">Jenjang Sabuk</a><a href="#jadwal">Jadwal</a><a href="#biaya">Biaya</a><a href="#faq">FAQ</a>
+      <a class="btn red" href="#daftar">Daftar Trial Gratis</a>
+    </nav>
+  </div>
+</header>
+
+<main id="beranda">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Taekwondo untuk Atlet &amp; Keluarga</div>
+        <h1>Disiplin.<br>Prestasi.<br>Karakter.</h1>
+        <p class="lead">Pembinaan taekwondo yang <strong>terstruktur, aman, dan terukur</strong> — dari kelas anak usia 5 tahun hingga jalur atlet prestasi. Setiap kenaikan sabuk, setiap pertandingan, dan setiap laporan perkembangan dapat diikuti dengan jelas oleh orang tua.</p>
+        <div class="hero-actions">
+          <a class="btn red" href="#daftar">Mulai Trial Gratis →</a>
+          <a class="btn ghost" href="#program">Lihat Program Kelas</a>
+        </div>
+        <p class="hero-note">Trial pertama gratis untuk semua kelas — tanpa kewajiban melanjutkan. Cukup bawa pakaian olahraga dan botol minum.</p>
+        <div class="hero-meta">
+          <div><b>5–17+</b><span>Rentang usia peserta</span></div>
+          <div><b>3 Jalur</b><span>Reguler • Poomsae • Kyorugi</span></div>
+          <div><b>Per 3 Bulan</b><span>Laporan untuk orang tua</span></div>
+        </div>
+      </div>
+      <figure class="hero-media" style="margin:0">
+        <img src="assets/hero.jpg" alt="Dua atlet taekwondo bersabuk hitam berlatih tendangan lompat di dojang dengan matras biru dan merah">
+        <figcaption><div><b>Latihan Terpimpin</b><span>Sabeum bersabuk hitam mendampingi setiap sesi teknik &amp; sparring.</span></div><span class="badge">Bersabuk Hitam</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- TENETS -->
+  <section class="strip" aria-label="Lima prinsip taekwondo">
+    <div class="wrap">
+      <div class="tenet"><i>01</i><b>Ye Ui</b><span>Kesopanan — hormat pada pelatih, lawan, dan orang tua</span></div>
+      <div class="tenet"><i>02</i><b>Yom Chi</b><span>Integritas — jujur dalam latihan dan pertandingan</span></div>
+      <div class="tenet"><i>03</i><b>In Nae</b><span>Ketekunan — konsisten sampai target sabuk tercapai</span></div>
+      <div class="tenet"><i>04</i><b>Geuk Gi</b><span>Pengendalian diri — kuat, tetapi tetap terkendali</span></div>
+      <div class="tenet"><i>05</i><b>Baekjul Boolgool</b><span>Semangat pantang menyerah — di matras dan di sekolah</span></div>
+    </div>
+  </section>
+
+  <!-- PROGRAM -->
+  <section class="section" id="program">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="label">Program Kelas</div><h2>Satu jalur,<br>jelas tahapannya</h2></div>
+        <p>Peserta tidak dicampur tanpa tujuan. Kelas dibagi berdasarkan usia dan tujuan — fondasi untuk anak, teknik untuk remaja, dan periodisasi latihan untuk atlet yang bertanding.</p>
+      </div>
+      <div class="grid3">
+        <article class="card">
+          <img src="assets/kids.jpg" loading="lazy" decoding="async" alt="Anak-anak berseragam taekwondo putih berlatih pukulan dasar dipandu pelatih di dojang terang">
+          <div class="card-body">
+            <h3>Anak — Fondasi &amp; Karakter</h3>
+            <p>Usia 5–12 tahun. Fokus pada motorik, keseimbangan, disiplin baris, dan teknik dasar yang aman. Tanpa kontak keras — semua sparring diganti target pad.</p>
+            <div class="meta-row"><span class="chip">2× / minggu</span><span class="chip">60 menit</span><span class="chip">Maks. 20 anak / kelas</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/poomsae.jpg" loading="lazy" decoding="async" alt="Dua atlet taekwondo bertanding kyorugi dengan pelindung badan merah dan biru di arena kompetisi">
+          <div class="card-body">
+            <h3>Remaja — Teknik &amp; Poomsae</h3>
+            <p>Usia 13–17 tahun. Pendalaman kihon, poomsae (jurus), dan fleksibilitas. Cocok untuk yang ingin rapi secara teknik dan siap ujian sabuk hitam.</p>
+            <div class="meta-row"><span class="chip">3× / minggu</span><span class="chip">90 menit</span><span class="chip">Poomsae &amp; Kihon</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/competition.jpg" loading="lazy" decoding="async" alt="Dua atlet putri bertanding taekwondo di kejuaraan internasional dengan pelindung merah dan biru">
+          <div class="card-body">
+            <h3>Atlet Prestasi — Kyorugi</h3>
+            <p>Seleksi dari kelas remaja &amp; dewasa. Latihan fisik, taktik bertanding, sparring dengan PSS, dan pendampingan ke kejuaraan daerah hingga nasional.</p>
+            <div class="meta-row"><span class="chip">4–5× / minggu</span><span class="chip">Seleksi berkala</span><span class="chip">Kyorugi</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR PARENTS -->
+  <section class="section soft" id="orangtua">
+    <div class="wrap split">
+      <div>
+        <div class="label">Khusus untuk Orang Tua</div>
+        <h2>Anda tahu persis perkembangan anak Anda</h2>
+        <p style="color:var(--muted);margin-top:14px">Kepercayaan dibangun dari transparansi. Karena itu setiap hal yang menyangkut anak Anda — kehadiran, target sabuk, hingga kesiapan bertanding — kami sampaikan secara tertulis, bukan sekadar lisan.</p>
+        <ul class="checklist">
+          <li><span class="check">✓</span><div><b>Laporan perkembangan tiap 3 bulan</b><span>Teknik, fisik, sikap, dan rekomendasi target berikutnya.</span></div></li>
+          <li><span class="check">✓</span><div><b>Keamanan latihan yang jelas</b><span>Pemanasan terstruktur, matras standar, pelindung wajib untuk sparring, dan rasio pelatih yang terbatas.</span></div></li>
+          <li><span class="check">✓</span><div><b>Izin sebelum bertanding</b><span>Anak tidak didaftarkan ke kejuaraan tanpa persetujuan tertulis orang tua dan cek kesiapan dari pelatih.</span></div></li>
+          <li><span class="check">✓</span><div><b>Ruang tunggu &amp; observasi terbuka</b><span>Orang tua dipersilakan menyaksikan latihan dari area yang disediakan.</span></div></li>
+        </ul>
+      </div>
+      <img src="assets/sparring.jpg" loading="lazy" decoding="async" alt="Dua atlet taekwondo berlatih tanding dengan pelindung lengkap di arena latihan">
+    </div>
+  </section>
+
+  <!-- BELT -->
+  <section class="section" id="sabuk">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="label">Jenjang Sabuk</div><h2>Dari putih<br>sampai hitam</h2></div>
+        <p>Klik setiap tingkat untuk melihat fokus latihannya. Ujian kenaikan tingkat (UKT) diadakan berkala dan dinilai dari teknik, poomsae, fisik, dan sikap.</p>
+      </div>
+      <div class="belt-explorer">
+        <div class="belt-list" role="tablist" aria-label="Pilih tingkat sabuk" id="beltList"></div>
+        <div class="belt-detail" id="beltDetail" role="tabpanel"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section class="section soft" id="jadwal">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="label">Jadwal Latihan</div><h2>Jadwal tetap,<br>mudah diatur</h2></div>
+        <p>Saring berdasarkan kelas untuk menyesuaikan dengan jadwal sekolah dan kegiatan keluarga. Datang 15 menit sebelum sesi dimulai.</p>
+      </div>
+      <div class="filters" id="schedFilters">
+        <button class="filter-btn active" data-filter="all" aria-pressed="true">Semua Kelas</button>
+        <button class="filter-btn" data-filter="anak" aria-pressed="false">Anak</button>
+        <button class="filter-btn" data-filter="remaja" aria-pressed="false">Remaja &amp; Poomsae</button>
+        <button class="filter-btn" data-filter="prestasi" aria-pressed="false">Atlet Prestasi</button>
+      </div>
+      <div class="schedule" id="scheduleList"></div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="biaya">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="label">Biaya — Transparan</div><h2>Tanpa biaya<br>tersembunyi</h2></div>
+        <p>Biaya pendaftaran awal mencakup dobok (seragam) dan sabuk putih. Biaya UKT dan kejuaraan diinformasikan tertulis sebelum peserta didaftarkan — tidak ada tagihan mendadak.</p>
+      </div>
+      <div class="pricing">
+        <article class="price-card">
+          <h3>Kelas Anak</h3>
+          <div class="price">Rp 300 rb <small>/ bulan</small></div>
+          <p style="color:var(--muted);font-size:.92rem">Untuk usia 5–12 tahun, fondasi &amp; karakter.</p>
+          <ul><li>8 sesi per bulan (2× / minggu)</li><li>Target pad &amp; latihan motorik</li><li>Laporan perkembangan 3 bulanan</li><li>Berhak ikut UKT berkala</li></ul>
+          <a class="btn ghost" href="#daftar" data-pick="Kelas Anak (5–12 tahun)">Pilih Kelas Anak</a>
+        </article>
+        <article class="price-card featured">
+          <div style="display:flex;justify-content:space-between;align-items:center"><h3>Remaja &amp; Poomsae</h3><span class="badge">Terpopuler</span></div>
+          <div class="price">Rp 400 rb <small>/ bulan</small></div>
+          <p style="color:var(--muted);font-size:.92rem">Untuk usia 13–17 tahun, teknik &amp; jurus.</p>
+          <ul><li>12 sesi per bulan (3× / minggu)</li><li>Poomsae, kihon &amp; fleksibilitas</li><li>Program persiapan sabuk hitam</li><li>Kesempatan seleksi tim prestasi</li></ul>
+          <a class="btn red" href="#daftar" data-pick="Kelas Remaja & Poomsae (13–17 tahun)">Pilih Kelas Remaja</a>
+        </article>
+        <article class="price-card">
+          <h3>Atlet Prestasi</h3>
+          <div class="price">Rp 550 rb <small>/ bulan</small></div>
+          <p style="color:var(--muted);font-size:.92rem">Melalui seleksi, fokus kyorugi &amp; kompetisi.</p>
+          <ul><li>16–20 sesi per bulan</li><li>Latihan fisik &amp; taktik bertanding</li><li>Sparring dengan pelindung elektronik</li><li>Pendampingan ke kejuaraan</li></ul>
+          <a class="btn ghost" href="#daftar" data-pick="Kelas Atlet Prestasi — Kyorugi (seleksi)">Pilih Jalur Prestasi</a>
+        </article>
+      </div>
+      <p style="margin-top:16px;color:var(--muted);font-size:.9rem">Pendaftaran awal: <strong style="color:var(--ink)">Rp 250.000</strong> (dobok + sabuk putih + kartu anggota). Trial pertama gratis, tanpa kewajiban melanjutkan.</p>
+    </div>
+  </section>
+
+  <!-- FAQ + FORM -->
+  <section class="section soft" id="faq">
+    <div class="wrap">
+      <div class="section-head"><div><div class="label">Pertanyaan Orang Tua &amp; Atlet</div><h2>Sering ditanyakan</h2></div></div>
+      <div class="faq">
+        <details open><summary>Apakah anak saya aman? Taekwondo terlihat keras. <span class="faq-icon" aria-hidden="true">+</span></summary><p>Untuk kelas anak, tidak ada kontak kepala dan tidak ada sparring bebas. Latihan menggunakan target pad, fokus pada teknik, keseimbangan, dan disiplin. Sparring dengan pelindung lengkap hanya untuk tingkat lanjut dan selalu diawasi pelatih.</p></details>
+        <details><summary>Berapa lama sampai sabuk hitam? <span class="faq-icon" aria-hidden="true">+</span></summary><p>Dengan latihan konsisten 2–3 kali seminggu, umumnya dibutuhkan sekitar 3–4 tahun dari sabuk putih hingga sabuk hitam (Dan 1). Kecepatan tergantung kehadiran, hasil UKT, dan kematangan teknik — bukan sekadar lama bergabung.</p></details>
+        <details><summary>Apakah latihan mengganggu sekolah? <span class="faq-icon" aria-hidden="true">+</span></summary><p>Jadwal sore dan akhir pekan dirancang agar tidak bentrok dengan jam sekolah. Menjelang ujian sekolah, peserta diperbolehkan mengurangi frekuensi dan mengganti sesi di minggu berikutnya dengan pemberitahuan.</p></details>
+        <details><summary>Bagaimana jika anak saya pemalu atau belum pernah olahraga? <span class="faq-icon" aria-hidden="true">+</span></summary><p>Justru sebagian besar peserta mulai dari nol. Trial gratis memang disediakan agar anak mencoba dulu tanpa tekanan. Pelatih akan menilai kesiapan dan menempatkan anak di kelompok yang sesuai.</p></details>
+        <details><summary>Apa yang perlu dibawa saat trial? <span class="faq-icon" aria-hidden="true">+</span></summary><p>Cukup pakaian olahraga yang nyaman dan botol minum. Dobok baru diperlukan setelah resmi mendaftar. Datang 15 menit lebih awal untuk pengenalan dojang dan pelatih.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="daftar">
+    <div class="wrap">
+      <div class="section-head"><div><div class="label">Pendaftaran Trial</div><h2>Daftar trial gratis</h2></div><p>Isi formulir di bawah ini. Ringkasan pendaftaran akan tersusun otomatis — salin atau unduh, lalu tunjukkan saat datang pertama kali ke dojang.</p></div>
+      <div class="form-grid">
+        <form id="regForm">
+          <label>Nama lengkap peserta<input required name="nama" placeholder="Contoh: Rizky Pratama" autocomplete="name"></label>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <label>Usia peserta<input required name="usia" type="number" min="4" max="40" placeholder="Contoh: 10"></label>
+            <label>Nama orang tua / wali<input name="wali" placeholder="Diisi untuk peserta anak"></label>
+          </div>
+          <label>Pilih kelas
+            <select name="kelas" id="kelasSelect">
+              <option>Kelas Anak (5–12 tahun)</option>
+              <option>Kelas Remaja &amp; Poomsae (13–17 tahun)</option>
+              <option>Kelas Atlet Prestasi — Kyorugi (seleksi)</option>
+              <option>Kelas Dewasa &amp; Umum (18+)</option>
+            </select>
+          </label>
+          <label>Pilihan hari trial
+            <select name="hari"><option>Selasa — 16.30</option><option>Kamis — 16.30</option><option>Sabtu — 09.00</option><option>Minggu — 09.00</option></select>
+          </label>
+          <label>Catatan (riwayat cedera, pengalaman, tujuan)<textarea name="catatan" placeholder="Contoh: Belum pernah bela diri, tujuan untuk disiplin dan kebugaran"></textarea></label>
+          <button class="btn red" type="submit">Susun Ringkasan Pendaftaran</button>
+          <p style="font-size:.84rem;color:var(--muted)">Ringkasan tersusun langsung di halaman ini — salin atau unduh, lalu bawa saat pertama kali datang ke dojang.</p>
+        </form>
+        <aside class="summary-box" aria-live="polite">
+          <h3>Ringkasan Anda</h3>
+          <dl>
+            <div><dt>Peserta</dt><dd id="sumNama">—</dd></div>
+            <div><dt>Kelas dipilih</dt><dd id="sumKelas">Kelas Anak (5–12 tahun)</dd></div>
+            <div><dt>Hari trial</dt><dd id="sumHari">Selasa — 16.30</dd></div>
+            <div><dt>Status</dt><dd>Trial pertama — GRATIS</dd></div>
+          </dl>
+          <p class="note">Setelah menekan tombol susun, gunakan tombol di bawah untuk menyalin ringkasan dan menyimpannya. Tunjukkan ringkasan ini saat tiba di dojang.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <button class="btn light" id="copyBtn" type="button">Salin Ringkasan</button>
+            <button class="btn" id="dlBtn" type="button" style="background:transparent;border-color:rgba(255,255,255,.5);color:#fff">Unduh (.txt)</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div style="font-family:Archivo;font-weight:900;letter-spacing:.06em;text-transform:uppercase;font-size:1.1rem">Garuda Taekwondo Academy</div>
+      <p>Dojang pembinaan taekwondo untuk anak, remaja, dan atlet prestasi. Disiplin di matras, berprestasi di arena, berkarakter di kehidupan sehari-hari.</p>
+    </div>
+    <div style="font-size:.92rem;line-height:1.9">
+      <nav aria-label="Navigasi footer"><a href="#program">Program</a><a href="#sabuk">Jenjang Sabuk</a><a href="#jadwal">Jadwal</a><a href="#biaya">Biaya</a><a href="#daftar">Daftar Trial</a></nav>
+      <div><strong style="opacity:1">Latihan:</strong> Selasa • Kamis • Sabtu • Minggu</div>
+      <div>Datang 15 menit sebelum sesi • Bawa botol minum &amp; pakaian ganti</div>
+      <div>Trial pertama gratis untuk semua kelas</div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+var belts=[
+ {name:"Putih — Geup 10–9",color:"#f8f9fb",focus:"Fondasi: sikap hormat, kuda-kuda dasar (seogi), pukulan dan tangkisan dasar, serta tendangan depan (ap chagi).",poomsae:"Kibon / Dasar",ukt:"Minimal 3 bulan latihan",target:"Berani tampil, disiplin baris, teknik dasar bersih"},
+ {name:"Kuning — Geup 8–7",color:"#facc15",focus:"Tendangan samping (yeop chagi) dan memutar (dollyo chagi), kombinasi langkah, dan awal poomsae.",poomsae:"Taeguk 1–2",ukt:"Minimal 3 bulan per tingkat",target:"Keseimbangan satu kaki dan koordinasi meningkat"},
+ {name:"Hijau — Geup 6–5",color:"#22a06b",focus:"Kombinasi serangan, tendangan belakang (dwit chagi), dan sparring satu langkah (hanbon kyorugi).",poomsae:"Taeguk 3–4",ukt:"Minimal 4 bulan per tingkat",target:"Berani mengambil keputusan saat latihan tanding terpimpin"},
+ {name:"Biru — Geup 4–3",color:"#2e6be6",focus:"Teknik lanjutan, kecepatan reaksi, poomsae menengah, dan sparring bebas ringan dengan pelindung.",poomsae:"Taeguk 5–6",ukt:"Minimal 4 bulan per tingkat",target:"Kontrol jarak dan pengendalian diri saat sparring"},
+ {name:"Merah — Geup 2–1",color:"#d92d20",focus:"Penyempurnaan seluruh teknik, poomsae tingkat tinggi, pemecahan papan (gyeokpa), dan persiapan sabuk hitam.",poomsae:"Taeguk 7–8",ukt:"Minimal 6 bulan per tingkat",target:"Siap dinilai sebagai calon sabuk hitam"},
+ {name:"Hitam — Dan 1+",color:"#101828",focus:"Pendalaman poomsae Koryo dan seterusnya, kepemimpinan di dojang, serta jalur atlet atau asisten pelatih.",poomsae:"Koryo, Keumgang, dst.",ukt:"Ujian Dan berkala",target:"Menjadi teladan teknik, sikap, dan tanggung jawab"}
+];
+var beltList=document.getElementById('beltList'), beltDetail=document.getElementById('beltDetail');
+belts.forEach(function(b,i){
+  var btn=document.createElement('button'); btn.className='belt-btn'; btn.setAttribute('role','tab'); btn.setAttribute('aria-selected', i===0?'true':'false');
+  btn.innerHTML='<span class="swatch" style="background:'+b.color+'"></span>'+b.name;
+  btn.addEventListener('click',function(){ selectBelt(i); });
+  beltList.appendChild(btn);
+});
+function selectBelt(i){
+  var b=belts[i];
+  beltList.querySelectorAll('.belt-btn').forEach(function(el,idx){ el.setAttribute('aria-selected', idx===i?'true':'false'); });
+  beltDetail.innerHTML='<div class="belt-band" style="background:'+b.color+'"></div><div class="label">Fokus Latihan</div><h3>'+b.name+'</h3><p>'+b.focus+'</p><div class="kv"><div><b>'+b.poomsae+'</b><span>Poomsae / Jurus</span></div><div><b>'+b.ukt+'</b><span>Jarak Ujian (UKT)</span></div><div><b style="font-size:1rem;line-height:1.3">'+b.target+'</b><span>Target Perkembangan</span></div></div>';
+}
+selectBelt(0);
+
+var schedule=[
+ {day:"Selasa",time:"16.30 – 17.30",title:"Kelas Anak — Teknik Dasar",desc:"Target pad, motorik, dan poomsae dasar • Sabeum pendamping 2 orang",cat:"anak",tag:"Anak",cls:""},
+ {day:"Selasa",time:"19.00 – 20.30",title:"Remaja & Poomsae",desc:"Taeguk, fleksibilitas, dan kombinasi teknik",cat:"remaja",tag:"Remaja",cls:"gold"},
+ {day:"Kamis",time:"16.30 – 17.30",title:"Kelas Anak — Motorik & Disiplin",desc:"Permainan terarah, keseimbangan, dan kihon",cat:"anak",tag:"Anak",cls:""},
+ {day:"Kamis",time:"19.00 – 20.30",title:"Atlet Prestasi — Kyorugi",desc:"Fisik, taktik, dan sparring dengan pelindung lengkap",cat:"prestasi",tag:"Prestasi",cls:"red"},
+ {day:"Sabtu",time:"09.00 – 10.00",title:"Kelas Anak — Trial & Gabungan",desc:"Sesi terbuka untuk peserta trial, didampingi orang tua",cat:"anak",tag:"Anak + Trial",cls:""},
+ {day:"Sabtu",time:"10.30 – 12.00",title:"Poomsae & Persiapan UKT",desc:"Koreksi jurus per tingkat sabuk dan simulasi ujian",cat:"remaja",tag:"Remaja",cls:"gold"},
+ {day:"Minggu",time:"09.00 – 11.00",title:"Atlet Prestasi — Sparring & Evaluasi",desc:"Uji tanding internal dan evaluasi video pertandingan",cat:"prestasi",tag:"Prestasi",cls:"red"}
+];
+var schedEl=document.getElementById('scheduleList');
+function renderSchedule(f){
+  schedEl.innerHTML='';
+  schedule.filter(function(s){return f==='all'||s.cat===f;}).forEach(function(s){
+    var row=document.createElement('div'); row.className='sched-row';
+    row.innerHTML='<time>'+s.day+'<br><span style="font-family:Public Sans;font-weight:600;color:var(--muted);font-size:.88rem">'+s.time+' WIB</span></time><div><h3>'+s.title+'</h3><p>'+s.desc+'</p></div><span class="tag '+s.cls+'">'+s.tag+'</span><a class="btn ghost" href="#daftar" style="min-height:44px;padding:10px 12px">Daftar Trial</a>';
+    schedEl.appendChild(row);
+  });
+  if(!schedEl.children.length) schedEl.innerHTML='<p style="color:var(--muted)">Tidak ada jadwal pada kategori ini.</p>';
+}
+renderSchedule('all');
+document.getElementById('schedFilters').addEventListener('click',function(e){
+  var b=e.target.closest('.filter-btn'); if(!b) return;
+  this.querySelectorAll('.filter-btn').forEach(function(x){x.classList.remove('active');x.setAttribute('aria-pressed','false')});
+  b.classList.add('active'); b.setAttribute('aria-pressed','true'); renderSchedule(b.dataset.filter);
+});
+
+var form=document.getElementById('regForm');
+var kelasSelect=document.getElementById('kelasSelect');
+document.querySelectorAll('[data-pick]').forEach(function(a){
+  a.addEventListener('click',function(){
+    var v=a.getAttribute('data-pick');
+    for(var i=0;i<kelasSelect.options.length;i++){ if(kelasSelect.options[i].text.replace(/\s+/g,' ').trim()===v.replace(/\s+/g,' ').trim() || kelasSelect.options[i].text.indexOf(v.split(' (')[0])===0){ kelasSelect.selectedIndex=i; break; } }
+    kelasSelect.dispatchEvent(new Event('change'));
+  });
+});
+function toast(msg){ var t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(function(){t.classList.remove('show')},2600); }
+function syncSummary(){
+  var fd=new FormData(form);
+  document.getElementById('sumNama').textContent=(fd.get('nama')||'—')+(fd.get('usia')?' • '+fd.get('usia')+' tahun':'');
+  document.getElementById('sumKelas').textContent=fd.get('kelas');
+  document.getElementById('sumHari').textContent=fd.get('hari');
+  return fd;
+}
+form.addEventListener('input',syncSummary); form.addEventListener('change',syncSummary);
+form.addEventListener('submit',function(e){ e.preventDefault(); var fd=syncSummary(); toast('Ringkasan pendaftaran untuk '+(fd.get('nama')||'peserta')+' sudah tersusun. Silakan salin atau unduh.'); document.querySelector('.summary-box').scrollIntoView({behavior:'smooth',block:'center'}); });
+function summaryText(){ var fd=new FormData(form); return 'RINGKASAN TRIAL — GARUDA TAEKWONDO ACADEMY\n----------------------------------------\nNama peserta : '+(fd.get('nama')||'-')+'\nUsia         : '+(fd.get('usia')||'-')+' tahun\nOrang tua/wali: '+(fd.get('wali')||'-')+'\nKelas        : '+fd.get('kelas')+'\nHari trial   : '+fd.get('hari')+'\nCatatan      : '+(fd.get('catatan')||'-')+'\nStatus       : Trial pertama GRATIS\n\nTunjukkan ringkasan ini saat datang ke dojang. Datang 15 menit lebih awal.'; }
+document.getElementById('copyBtn').addEventListener('click',function(){ var txt=summaryText(); if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(function(){toast('Ringkasan berhasil disalin.')},function(){toast('Gagal menyalin — silakan unduh ringkasannya.')}); } else { toast('Peramban tidak mendukung salin otomatis — silakan unduh.'); } });
+document.getElementById('dlBtn').addEventListener('click',function(){ var blob=new Blob([summaryText()],{type:'text/plain;charset=utf-8'}); var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='ringkasan-trial-taekwondo.txt'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function(){URL.revokeObjectURL(a.href)},500); toast('Ringkasan diunduh.'); });
+syncSummary();
+</script>
+</body>
+</html>

@@ -41,4 +41,4 @@ DESIGN.md
 
 ## Catatan foto
 
-Foto di kartu "Remaja — Teknik & Poomsae" saat ini sebenarnya foto pertandingan kyorugi, bukan poomsae murni. Alt-nya sudah disesuaikan agar akurat. Pengganti yang terverifikasi dari final WT Chuncheon World Poomsae Championships 2026 masih menunggu persetujuan, dengan kredit World Taekwondo.
+Foto di kartu "Remaja — Teknik & Poomsae" diperbaiki 2026-11-25: foto lama sebenarnya foto pertandingan kyorugi. Foto baru adalah tiga atlet yang menampilkan jurus poomsae di turnamen taekwondo, Kunsan Air Base, Korea, 30 Januari 2005 — foto U.S. Air Force oleh Senior Airman Giang Nguyen, domain publik (Wikimedia Commons, File:Poomsae.jpg), tanpa kewajiban atribusi. Foto pers World Taekwondo dari final Chuncheon 2026 TIDAK dipakai, karena lisensi pakai-ulangnya belum terkonfirmasi.

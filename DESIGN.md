@@ -7,6 +7,7 @@ akademi — bukan template promosi generik.
 ## Warna
 - Navy `#0d1b33` — warna utama (nav, footer, panel ringkasan, sabuk terpilih)
 - Merah `#c8102e` — satu-satunya aksen aksi (CTA, penanda seksi, garis atas kartu unggulan)
+- Merah teks `--red-text` — `#c8102e` di light, `#ff8fa3` di dark (kontras teks merah di dark: 8,66:1 di `#0b1220`, lolos AA; jangan pakai `--red` untuk teks kecil di dark, rasionya cuma 3,18:1)
 - Tinta `#0e1729`, teks sekunder `#2c3a52`, teks muted `#475467` (kontras AA di putih)
 - Latar bergantian putih / `#f2f4f8`; mode gelap mengikuti `prefers-color-scheme`
 

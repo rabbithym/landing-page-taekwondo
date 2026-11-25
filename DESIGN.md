@@ -33,3 +33,25 @@ akademi — bukan template promosi generik.
 - Tidak ada gradient, tidak ada bayangan berwarna, tidak ada kicker tanpa garis seksi
 - Gerakan hanya transisi ≤0.2s dan dimatikan pada `prefers-reduced-motion`
 - Semua fungsi (sabuk, filter jadwal, pilih paket, ringkasan salin/unduh) wajib tetap jalan
+
+## Pengecualian yang disengaja (audit Impeccable 2026-11-25)
+Temuan detector di bawah ini BUKAN cacat — sengaja dipertahankan karena bagian
+dari identitas akademi. Jangan "diperbaiki" oleh audit/perintah polish berikutnya
+tanpa persetujuan pengguna.
+- **Kicker di atas heading (7 seksi).** Setiap kepala seksi memakai label
+  berkotak merah 9px di atas h2. Detector melarang kicker secara mutlak, tapi
+  di sini label itu penanda seksi resmi, selalu dipasangkan dengan garis atas
+  2px tinta. Hero eyebrow mengikuti pola yang sama (garis merah 36px, bukan pill).
+- **Garis atas di kartu rounded (4 kartu).** `.card` dan `.price-card.featured`
+  memakai border-top 3–4px merah/navy dengan radius 4px. Garis itu penanda
+  unggulan; radius kecil (4px) membuat benturannya minimal.
+- **Cramped-padding (8 temuan, false positive terverifikasi).** Detector membaca
+  seksi sebagai nempel ke tepi, padahal `.wrap` = `min(1180px, calc(100% - 40px))`
+  memberi inset 20px kiri-kanan di semua lebar, `.section` hanya punya padding
+  vertikal (84px 0), dan `.hero-copy` punya padding 64px 48px. Diverifikasi lewat
+  CSS 2026-11-25; screenshot render tidak bisa dijalankan di VM (Chrome tidak
+  bisa start: Hatch WebGL domain policy). Jangan ubah padding apa pun.
+- **Em-dash sebagai pemisah terstruktur.** Em-dash di judul ("Anak — Fondasi &
+  Karakter"), definisi lima prinsip ("Kesopanan — hormat…"), dan jam ("Selasa —
+  16.30") adalah pemisah, bukan jeda kalimat. Yang dikurangi hanya em-dash jeda
+  di paragraf prosa.

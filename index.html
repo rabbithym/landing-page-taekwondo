@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:,">
-<link rel="preload" as="image" href="assets/hero.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hero-1280.webp" type="image/webp" fetchpriority="high">
 <title>Garuda Taekwondo Academy — Disiplin, Prestasi, Karakter</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link rel="preload" as="font" href="assets/fonts/Archivo-800-latin.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="assets/fonts/PublicSans-400-latin.woff2" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
 <style>
 :root{
   --bg:#ffffff; --bg-soft:#f2f4f8; --bg-navy:#0d1b33; --surface:#ffffff; --surface-2:#eaeef5;
@@ -73,6 +73,7 @@ section[id]{scroll-margin-top:96px}
 .hero-meta b{font-family:"Archivo";font-size:1.55rem;font-weight:800;display:block;line-height:1.1}
 .hero-meta span{font-size:.82rem;color:var(--muted);font-weight:600}
 .hero-media{position:relative;min-height:420px}
+.hero-media picture{position:absolute;inset:0;display:block}
 .hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero-media figcaption{position:absolute;left:20px;bottom:20px;right:20px;background:rgba(13,27,51,.94);color:#fff;padding:16px 18px;display:flex;justify-content:space-between;gap:16px;align-items:center;border-top:3px solid var(--red)}
 .hero-media figcaption b{font-family:"Archivo";text-transform:uppercase;letter-spacing:.04em}
@@ -95,7 +96,9 @@ section[id]{scroll-margin-top:96px}
 .card{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:var(--radius);overflow:hidden;transition:box-shadow .2s,transform .2s}
 .grid3 .card:nth-child(2){border-top-color:var(--red)}
 .card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.card picture{display:block}
 .card img{width:100%;height:230px;object-fit:cover}
+.split picture{display:block;height:100%}
 .card-body{padding:24px}
 .card-body p{color:var(--muted);font-size:.95rem;margin-top:8px}
 .meta-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
@@ -156,6 +159,10 @@ form{background:var(--surface);border:1px solid var(--line);border-radius:var(--
 label{font-weight:700;font-size:.9rem;display:grid;gap:7px}
 input,select,textarea{border:1px solid var(--line);border-radius:4px;padding:11px 12px;background:var(--bg);color:var(--ink);width:100%}
 input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,92,211,.22)}
+input[aria-invalid="true"]{border-color:var(--red-text);box-shadow:0 0 0 3px rgba(200,16,46,.18)}
+.req{color:var(--red-text);font-weight:900}
+.field-error{color:var(--red-text);font-size:.85rem;font-weight:600;margin:0}
+.form-hint{font-size:.85rem;color:var(--muted);margin:0 0 14px}
 textarea{min-height:96px;resize:vertical}
 .summary-box{background:var(--navy);color:#fff;border-radius:var(--radius);border-top:4px solid var(--red);padding:26px;position:sticky;top:108px}
 .summary-box h3{color:#fff}
@@ -229,12 +236,12 @@ footer p{opacity:.78;font-size:.92rem;max-width:34rem;margin-top:8px}
       <div class="hero-copy">
         <div class="eyebrow">Taekwondo untuk Atlet &amp; Keluarga</div>
         <h1>Disiplin.<br>Prestasi.<br>Karakter.</h1>
-        <p class="lead">Pembinaan taekwondo yang <strong>terstruktur, aman, dan terukur</strong> — dari kelas anak usia 5 tahun hingga jalur atlet prestasi. Setiap kenaikan sabuk, setiap pertandingan, dan setiap laporan perkembangan dapat diikuti dengan jelas oleh orang tua.</p>
+        <p class="lead">Pembinaan taekwondo yang <strong>terstruktur, aman, dan terukur</strong>. Dari kelas anak usia 5 tahun hingga jalur atlet prestasi. Setiap kenaikan sabuk, setiap pertandingan, dan setiap laporan perkembangan dapat diikuti dengan jelas oleh orang tua.</p>
         <div class="hero-actions">
           <a class="btn red" href="#daftar">Mulai Trial Gratis →</a>
           <a class="btn ghost" href="#program">Lihat Program Kelas</a>
         </div>
-        <p class="hero-note">Trial pertama gratis untuk semua kelas — tanpa kewajiban melanjutkan. Cukup bawa pakaian olahraga dan botol minum.</p>
+        <p class="hero-note">Trial pertama gratis untuk semua kelas, tanpa kewajiban melanjutkan. Cukup bawa pakaian olahraga dan botol minum.</p>
         <div class="hero-meta">
           <div><b>5–17+</b><span>Rentang usia peserta</span></div>
           <div><b>3 Jalur</b><span>Reguler • Poomsae • Kyorugi</span></div>
@@ -242,7 +249,7 @@ footer p{opacity:.78;font-size:.92rem;max-width:34rem;margin-top:8px}
         </div>
       </div>
       <figure class="hero-media" style="margin:0">
-        <img src="assets/hero.jpg" width="1280" height="854" fetchpriority="high" alt="Dua atlet taekwondo bersabuk hitam berlatih tendangan lompat di dojang dengan matras biru dan merah">
+        <picture><source type="image/webp" srcset="assets/hero-800.webp 800w, assets/hero-1280.webp 1280w" sizes="(max-width: 920px) 100vw, 580px"><img src="assets/hero.jpg" width="1280" height="854" fetchpriority="high" alt="Dua atlet taekwondo bersabuk hitam berlatih tendangan lompat di dojang dengan matras biru dan merah"></picture>
         <figcaption><div><b>Latihan Terpimpin</b><span>Sabeum bersabuk hitam mendampingi setiap sesi teknik &amp; sparring.</span></div><span class="badge">Bersabuk Hitam</span></figcaption>
       </figure>
     </div>
@@ -264,11 +271,11 @@ footer p{opacity:.78;font-size:.92rem;max-width:34rem;margin-top:8px}
     <div class="wrap">
       <div class="section-head">
         <div><div class="label">Program Kelas</div><h2>Satu jalur,<br>jelas tahapannya</h2></div>
-        <p>Peserta tidak dicampur tanpa tujuan. Kelas dibagi berdasarkan usia dan tujuan — fondasi untuk anak, teknik untuk remaja, dan periodisasi latihan untuk atlet yang bertanding.</p>
+        <p>Peserta tidak dicampur tanpa tujuan. Kelas dibagi berdasarkan usia dan tujuan: fondasi untuk anak, teknik untuk remaja, dan periodisasi latihan untuk atlet yang bertanding.</p>
       </div>
       <div class="grid3">
         <article class="card">
-          <img src="assets/kids.jpg" loading="lazy" decoding="async" width="2560" height="1707" alt="Anak-anak berseragam taekwondo putih berlatih pukulan dasar dipandu pelatih di dojang terang">
+          <picture><source type="image/webp" srcset="assets/kids-800.webp 800w" sizes="(max-width: 920px) 100vw, 373px"><img src="assets/kids.jpg" loading="lazy" decoding="async" width="2560" height="1707" alt="Anak-anak berseragam taekwondo putih berlatih pukulan dasar dipandu pelatih di dojang terang"></picture>
           <div class="card-body">
             <h3>Anak — Fondasi &amp; Karakter</h3>
             <p>Usia 5–12 tahun. Fokus pada motorik, keseimbangan, disiplin baris, dan teknik dasar yang aman. Tanpa kontak keras — semua sparring diganti target pad.</p>
@@ -276,7 +283,7 @@ footer p{opacity:.78;font-size:.92rem;max-width:34rem;margin-top:8px}
           </div>
         </article>
         <article class="card">
-          <img src="assets/poomsae.jpg" loading="lazy" decoding="async" width="1200" height="506" alt="Tiga atlet taekwondo menampilkan jurus poomsae secara bersamaan di atas matras kompetisi">
+          <picture><source type="image/webp" srcset="assets/poomsae-800.webp 800w" sizes="(max-width: 920px) 100vw, 373px"><img src="assets/poomsae.jpg" loading="lazy" decoding="async" width="1200" height="506" alt="Tiga atlet taekwondo menampilkan jurus poomsae secara bersamaan di atas matras kompetisi"></picture>
           <div class="card-body">
             <h3>Remaja — Teknik &amp; Poomsae</h3>
             <p>Usia 13–17 tahun. Pendalaman kihon, poomsae (jurus), dan fleksibilitas. Cocok untuk yang ingin rapi secara teknik dan siap ujian sabuk hitam.</p>
@@ -284,7 +291,7 @@ footer p{opacity:.78;font-size:.92rem;max-width:34rem;margin-top:8px}
           </div>
         </article>
         <article class="card">
-          <img src="assets/competition.jpg" loading="lazy" decoding="async" width="1000" height="666" alt="Dua atlet putri bertanding taekwondo di kejuaraan internasional dengan pelindung merah dan biru">
+          <picture><source type="image/webp" srcset="assets/competition-800.webp 800w" sizes="(max-width: 920px) 100vw, 373px"><img src="assets/competition.jpg" loading="lazy" decoding="async" width="1000" height="666" alt="Dua atlet putri bertanding taekwondo di kejuaraan internasional dengan pelindung merah dan biru"></picture>
           <div class="card-body">
             <h3>Atlet Prestasi — Kyorugi</h3>
             <p>Seleksi dari kelas remaja &amp; dewasa. Latihan fisik, taktik bertanding, sparring dengan PSS, dan pendampingan ke kejuaraan daerah hingga nasional.</p>
@@ -309,7 +316,7 @@ footer p{opacity:.78;font-size:.92rem;max-width:34rem;margin-top:8px}
           <li><span class="check">✓</span><div><b>Ruang tunggu &amp; observasi terbuka</b><span>Orang tua dipersilakan menyaksikan latihan dari area yang disediakan.</span></div></li>
         </ul>
       </div>
-      <img src="assets/sparring.jpg" loading="lazy" decoding="async" width="1200" height="800" alt="Dua atlet taekwondo berlatih tanding dengan pelindung lengkap di arena latihan">
+      <picture><source type="image/webp" srcset="assets/sparring-800.webp 800w" sizes="(max-width: 920px) 100vw, 566px"><img src="assets/sparring.jpg" loading="lazy" decoding="async" width="1200" height="800" alt="Dua atlet taekwondo berlatih tanding dengan pelindung lengkap di arena latihan"></picture>
     </div>
   </section>
 
@@ -349,7 +356,7 @@ footer p{opacity:.78;font-size:.92rem;max-width:34rem;margin-top:8px}
     <div class="wrap">
       <div class="section-head">
         <div><div class="label">Biaya — Transparan</div><h2>Tanpa biaya<br>tersembunyi</h2></div>
-        <p>Biaya pendaftaran awal mencakup dobok (seragam) dan sabuk putih. Biaya UKT dan kejuaraan diinformasikan tertulis sebelum peserta didaftarkan — tidak ada tagihan mendadak.</p>
+        <p>Biaya pendaftaran awal mencakup dobok (seragam) dan sabuk putih. Biaya UKT dan kejuaraan diinformasikan tertulis sebelum peserta didaftarkan. Tidak ada tagihan mendadak.</p>
       </div>
       <div class="pricing">
         <article class="price-card">
@@ -384,7 +391,7 @@ footer p{opacity:.78;font-size:.92rem;max-width:34rem;margin-top:8px}
       <div class="section-head"><div><div class="label">Pertanyaan Orang Tua &amp; Atlet</div><h2>Sering ditanyakan</h2></div></div>
       <div class="faq">
         <details open><summary>Apakah anak saya aman? Taekwondo terlihat keras. <span class="faq-icon" aria-hidden="true">+</span></summary><p>Untuk kelas anak, tidak ada kontak kepala dan tidak ada sparring bebas. Latihan menggunakan target pad, fokus pada teknik, keseimbangan, dan disiplin. Sparring dengan pelindung lengkap hanya untuk tingkat lanjut dan selalu diawasi pelatih.</p></details>
-        <details><summary>Berapa lama sampai sabuk hitam? <span class="faq-icon" aria-hidden="true">+</span></summary><p>Dengan latihan konsisten 2–3 kali seminggu, umumnya dibutuhkan sekitar 3–4 tahun dari sabuk putih hingga sabuk hitam (Dan 1). Kecepatan tergantung kehadiran, hasil UKT, dan kematangan teknik — bukan sekadar lama bergabung.</p></details>
+        <details><summary>Berapa lama sampai sabuk hitam? <span class="faq-icon" aria-hidden="true">+</span></summary><p>Dengan latihan konsisten 2–3 kali seminggu, umumnya dibutuhkan sekitar 3–4 tahun dari sabuk putih hingga sabuk hitam (Dan 1). Kecepatan tergantung kehadiran, hasil UKT, dan kematangan teknik, bukan sekadar lama bergabung.</p></details>
         <details><summary>Apakah latihan mengganggu sekolah? <span class="faq-icon" aria-hidden="true">+</span></summary><p>Jadwal sore dan akhir pekan dirancang agar tidak bentrok dengan jam sekolah. Menjelang ujian sekolah, peserta diperbolehkan mengurangi frekuensi dan mengganti sesi di minggu berikutnya dengan pemberitahuan.</p></details>
         <details><summary>Bagaimana jika anak saya pemalu atau belum pernah olahraga? <span class="faq-icon" aria-hidden="true">+</span></summary><p>Justru sebagian besar peserta mulai dari nol. Trial gratis memang disediakan agar anak mencoba dulu tanpa tekanan. Pelatih akan menilai kesiapan dan menempatkan anak di kelompok yang sesuai.</p></details>
         <details><summary>Apa yang perlu dibawa saat trial? <span class="faq-icon" aria-hidden="true">+</span></summary><p>Cukup pakaian olahraga yang nyaman dan botol minum. Dobok baru diperlukan setelah resmi mendaftar. Datang 15 menit lebih awal untuk pengenalan dojang dan pelatih.</p></details>
@@ -394,12 +401,13 @@ footer p{opacity:.78;font-size:.92rem;max-width:34rem;margin-top:8px}
 
   <section class="section" id="daftar">
     <div class="wrap">
-      <div class="section-head"><div><div class="label">Pendaftaran Trial</div><h2>Daftar trial gratis</h2></div><p>Isi formulir di bawah ini. Ringkasan pendaftaran akan tersusun otomatis — salin atau unduh, lalu tunjukkan saat datang pertama kali ke dojang.</p></div>
+      <div class="section-head"><div><div class="label">Pendaftaran Trial</div><h2>Daftar trial gratis</h2></div><p>Isi formulir di bawah ini. Ringkasan pendaftaran akan tersusun otomatis. Salin atau unduh, lalu tunjukkan saat datang pertama kali ke dojang.</p></div>
       <div class="form-grid">
-        <form id="regForm">
-          <label>Nama lengkap peserta<input required name="nama" placeholder="Contoh: Rizky Pratama" autocomplete="name"></label>
+        <form id="regForm" novalidate>
+          <p class="form-hint">Kolom bertanda <span class="req" aria-hidden="true">*</span> wajib diisi.</p>
+          <label>Nama lengkap peserta <span class="req" aria-hidden="true">*</span><input required name="nama" placeholder="Contoh: Rizky Pratama" autocomplete="name" aria-describedby="errNama"><p class="field-error" id="errNama" hidden>Nama lengkap peserta wajib diisi.</p></label>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-            <label>Usia peserta<input required name="usia" type="number" min="4" max="40" placeholder="Contoh: 10"></label>
+            <label>Usia peserta <span class="req" aria-hidden="true">*</span><input required name="usia" type="number" min="4" max="40" placeholder="Contoh: 10" aria-describedby="errUsia"><p class="field-error" id="errUsia" hidden>Usia peserta wajib diisi, 4–40 tahun.</p></label>
             <label>Nama orang tua / wali<input name="wali" placeholder="Diisi untuk peserta anak"></label>
           </div>
           <label>Pilih kelas
@@ -415,7 +423,7 @@ footer p{opacity:.78;font-size:.92rem;max-width:34rem;margin-top:8px}
           </label>
           <label>Catatan (riwayat cedera, pengalaman, tujuan)<textarea name="catatan" placeholder="Contoh: Belum pernah bela diri, tujuan untuk disiplin dan kebugaran"></textarea></label>
           <button class="btn red" type="submit">Susun Ringkasan Pendaftaran</button>
-          <p style="font-size:.84rem;color:var(--muted)">Ringkasan tersusun langsung di halaman ini — salin atau unduh, lalu bawa saat pertama kali datang ke dojang.</p>
+          <p style="font-size:.84rem;color:var(--muted)">Ringkasan tersusun langsung di halaman ini. Salin atau unduh, lalu bawa saat pertama kali datang ke dojang.</p>
         </form>
         <aside class="summary-box" aria-live="polite">
           <h3>Ringkasan Anda</h3>
@@ -531,7 +539,26 @@ function syncSummary(){
   return fd;
 }
 form.addEventListener('input',syncSummary); form.addEventListener('change',syncSummary);
-form.addEventListener('submit',function(e){ e.preventDefault(); var fd=syncSummary(); toast('Ringkasan pendaftaran untuk '+(fd.get('nama')||'peserta')+' sudah tersusun. Silakan salin atau unduh.'); document.querySelector('.summary-box').scrollIntoView({behavior:'smooth',block:'center'}); });
+function setFieldError(input, errId, message){
+  var err=document.getElementById(errId);
+  if(message){ err.textContent=message; err.hidden=false; input.setAttribute('aria-invalid','true'); }
+  else { err.hidden=true; input.removeAttribute('aria-invalid'); }
+  return !message;
+}
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var namaInput=form.elements.nama, usiaInput=form.elements.usia;
+  var namaOk=setFieldError(namaInput,'errNama', namaInput.value.trim() ? '' : 'Nama lengkap peserta wajib diisi.');
+  var usiaVal=Number(usiaInput.value), usiaMsg='';
+  if(!usiaInput.value.trim()) usiaMsg='Usia peserta wajib diisi, 4–40 tahun.';
+  else if(usiaVal<4||usiaVal>40) usiaMsg='Usia peserta harus 4–40 tahun.';
+  var usiaOk=setFieldError(usiaInput,'errUsia', usiaMsg);
+  if(!namaOk){ namaInput.focus(); return; }
+  if(!usiaOk){ usiaInput.focus(); return; }
+  var fd=syncSummary(); toast('Ringkasan pendaftaran untuk '+(fd.get('nama')||'peserta')+' sudah tersusun. Silakan salin atau unduh.'); document.querySelector('.summary-box').scrollIntoView({behavior:'smooth',block:'center'});
+});
+form.elements.nama.addEventListener('input',function(){ setFieldError(form.elements.nama,'errNama',''); });
+form.elements.usia.addEventListener('input',function(){ setFieldError(form.elements.usia,'errUsia',''); });
 function summaryText(){ var fd=new FormData(form); return 'RINGKASAN TRIAL — GARUDA TAEKWONDO ACADEMY\n----------------------------------------\nNama peserta : '+(fd.get('nama')||'-')+'\nUsia         : '+(fd.get('usia')||'-')+' tahun\nOrang tua/wali: '+(fd.get('wali')||'-')+'\nKelas        : '+fd.get('kelas')+'\nHari trial   : '+fd.get('hari')+'\nCatatan      : '+(fd.get('catatan')||'-')+'\nStatus       : Trial pertama GRATIS\n\nTunjukkan ringkasan ini saat datang ke dojang. Datang 15 menit lebih awal.'; }
 document.getElementById('copyBtn').addEventListener('click',function(){ var txt=summaryText(); if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(function(){toast('Ringkasan berhasil disalin.')},function(){toast('Gagal menyalin — silakan unduh ringkasannya.')}); } else { toast('Peramban tidak mendukung salin otomatis — silakan unduh.'); } });
 document.getElementById('dlBtn').addEventListener('click',function(){ var blob=new Blob([summaryText()],{type:'text/plain;charset=utf-8'}); var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='ringkasan-trial-taekwondo.txt'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function(){URL.revokeObjectURL(a.href)},500); toast('Ringkasan diunduh.'); });
